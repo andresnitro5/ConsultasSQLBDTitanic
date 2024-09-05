@@ -51,6 +51,32 @@ SELECT Embarked, count (*) AS Num_Pasajeros_Por_Puerto
 FROM titanic
 GROUP BY Embarked;
 
+--Encontrar la edad promedio de los pasajeros en cada clase (Pclass)
+SELECT Pclass, AVG(Age) AS AverageAge
+FROM titanic
+GROUP BY Pclass;
+
+--Listar los pasajeros que viajaron en la primera clase (Pclass = 1) y que tienen un precio de boleto (Fare) mayor a 100
+SELECT PassengerId, Name, Fare
+FROM titanic
+WHERE Pclass = 1 AND Fare > 100;
+
+--Contar el número de pasajeros que sobrevivieron y el número que no sobrevivieron
+SELECT Survived, COUNT(*) AS Count
+FROM titanic
+GROUP BY Survived;
+
+--Encontrar la edad promedio de los pasajeros que sobrevivieron (Survived = 1) y los que no sobrevivieron (Survived = 0)
+SELECT Survived, AVG(Age) AS AverageAge
+FROM titanic
+GROUP BY Survived;
+
+--Listar el nombre, clase (Pclass), y precio del boleto (Fare) de los 5 pasajeros que pagaron más por su boleto
+SELECT Name, Pclass, Fare
+FROM titanic
+ORDER BY Fare DESC
+LIMIT 5;
+
 
 
 
